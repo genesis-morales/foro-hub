@@ -24,7 +24,10 @@ public class Respuesta {
     @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
 
-    private String autor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id", nullable = false)
+    private Usuario autor;
+
     private Boolean solucion;
 
     @ManyToOne(fetch = FetchType.LAZY)

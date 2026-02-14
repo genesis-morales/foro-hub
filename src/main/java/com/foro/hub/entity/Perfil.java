@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Table(name = "perfiles")
 @Entity(name = "Perfil")
 @Getter
@@ -18,5 +21,9 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String nombre;
+
+    @ManyToMany(mappedBy = "perfiles")
+    private List<Usuario> usuarios = new ArrayList<>();
 }

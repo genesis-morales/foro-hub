@@ -25,12 +25,16 @@ public class Topico {
 
     private String titulo;
     private String mensaje;
+
+    @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
 
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
-    private String autor;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id", nullable = false)
+    private Usuario autor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "curso_id")
