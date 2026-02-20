@@ -1,6 +1,7 @@
 package com.foro.hub.entity;
 
 import com.foro.hub.dto.enums.Estado;
+import com.foro.hub.dto.topico.DatosRegistroTopico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -42,4 +43,8 @@ public class Topico {
 
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Respuesta> respuestas = new ArrayList<>();
+
+    Topico(DatosRegistroTopico datos) {
+
+    }
 }
